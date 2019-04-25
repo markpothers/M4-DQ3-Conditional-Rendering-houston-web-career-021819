@@ -4,6 +4,31 @@ import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
 
+  state={
+    profile: 'item active',
+    photo: 'item',
+    cocktail:'item',
+    pokemon: 'item'
+  }
+
+  updateActive = (item) => {
+      this.setState({
+        profile: 'item',
+        photo: 'item',
+        cocktail: 'item',
+        pokemon: 'item'
+      })
+    this.setState({[item]: 'item active'})
+  }
+
+  findActive = () => {
+    switch ('item active'){
+      case this.state.profile: return <Profile />
+      case this.state.photo: return <Photos />
+      case this.state.cocktail: return <Cocktails />
+      case this.state.pokemon: return <Pokemon />
+    }
+  }
 
   render() {
 
@@ -13,12 +38,10 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
-
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar {...this.state} updateActive={this.updateActive}/>
+        {this.findActive()}
       </div>
     )
   }

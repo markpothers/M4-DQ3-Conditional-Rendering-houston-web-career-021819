@@ -1,7 +1,6 @@
 import React from 'react'
 
 const MenuBar = (props) => {
-
   /*
 
   The 'a' tags below are the menu items. Think about the way a menu 
@@ -13,21 +12,22 @@ const MenuBar = (props) => {
 
   */
 
+
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
+      <a className={props.profile} id="profile" onClick={()=>props.updateActive('profile')}>
         <i className="user large icon" id="profile"/>
       </a>
 
-      <a className="item" id="photo">
+      <a className={props.photo} id="photo" onClick={()=>props.updateActive('photo')}>
         <i className="photo large icon" id="photo"/>
       </a>
 
-      <a className="item" id="cocktail">
+      <a className={props.cocktail} id="cocktail" onClick={()=>props.updateActive('cocktail')}>
         <i className="cocktail large icon" id="cocktail"/>
       </a>
 
-      <a className="item" id="pokemon"> 
+      <a className={props.pokemon} id="pokemon" onClick={()=>props.updateActive('pokemon')}> 
         <i className=" themeisle large icon" id="pokemon"/>
       </a>
     </div>
